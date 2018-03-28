@@ -30,8 +30,10 @@ function mha_login_redirect($redirect_to, $request = NULL, $user = NULL) {
   if (isset($user->roles) && is_array($user->roles)) {
     //check for subscribers
     if (in_array('subscriber', $user->roles)) {
-      // redirect them to another URL, in this case, the homepage
-      $redirect_to = home_url();
+      // redirect them to another URL, in this case, the login page,
+      // which tells them they're logged in and gives an easy link
+      // to edit their profile.
+      $redirect_to = '/login/'; 
     }
   }
   return $redirect_to;
